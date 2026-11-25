@@ -1,0 +1,397 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Pipeline · UI mock</title><style>
+:root{color-scheme:dark;--bg:#151819;--panel:#1d2122;--border:#303637;--muted:#9aa4a4;--text:#ecf0ee;--green:#22855c}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:14px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}button,input,textarea,select{font:inherit;color:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid #5ac596;outline-offset:2px}.layout{display:flex;min-height:100vh}.sidebar{width:240px;flex:none;background:#111415;border-right:1px solid var(--border);padding:15px 10px}.nav{border:0;background:transparent;color:#b6bdbd;display:block;text-align:left;width:100%;padding:9px 12px;border-radius:6px}.nav.active{background:#27332e;color:#ecfff4}.nav span{display:inline-block;width:24px}.section{font-size:11px;color:#828d8c;margin:25px 12px 10px}.workspace{padding:10px 12px;color:#b6bdbd}.main{flex:1;min-width:0}.bar{height:48px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:9px;padding:0 20px;color:var(--muted)}.tag{border:1px solid #41544a;color:#a5e2c1;background:#193328;border-radius:5px;font-size:11px;padding:3px 6px}.content{max-width:1120px;margin:auto;padding:24px 28px}h1{font-size:20px;letter-spacing:-.02em;margin:0}h2{font-size:15px;margin:0}p{color:var(--muted);line-height:1.5}.row{display:flex;align-items:center;gap:10px}.spread{justify-content:space-between}.muted{color:var(--muted)}.small{font-size:12px}.button{border:1px solid #404849;background:#252a2b;border-radius:6px;padding:7px 11px}.button:hover,.icon:hover{background:#32393a}.primary{background:#187448;border-color:#218c5e;color:#fff}.primary:hover{background:#21885b}.icon{background:transparent;border:0;color:#a3adad;border-radius:5px;padding:5px 8px}.card{border:1px solid var(--border);border-radius:8px;background:var(--panel);padding:16px;margin-top:12px}.item{display:flex;align-items:center;gap:12px;border:1px solid var(--border);border-radius:7px;padding:12px;margin-top:8px;background:#1b1f20}.item b{display:block;margin-bottom:4px}.roadmap-card{cursor:pointer;display:grid;grid-template-columns:16px minmax(0,1fr) auto;align-items:start}.roadmap-card .item-content{min-width:0;overflow-wrap:anywhere}.roadmap-card .item-tags{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}.roadmap-header{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.dashboard-grid{grid-template-columns:minmax(0,1fr) minmax(260px,340px)}.flow{display:flex;align-items:center;gap:7px;flex-wrap:wrap}.flow-node{border:1px solid #43534b;border-radius:6px;background:#202925;padding:8px 10px;font-size:12px}.flow-arrow{color:#9aa4a4}.flow-current{border-color:#2ca870;color:#b4efce}.flow-done{border-color:#5e7870}.flow-return{color:#d8bb80;font-size:12px;margin-top:10px}@media(max-width:1060px){.roadmap-card{grid-template-columns:16px minmax(0,1fr)}.roadmap-card .item-tags{grid-column:2;justify-content:flex-start}.dashboard-grid{grid-template-columns:1fr}}@media(max-width:720px){#headAction{display:flex;align-items:center;gap:4px;flex-wrap:wrap;justify-content:flex-end}}.roadmap-card:hover{background:#242a29;border-color:#52635d}.roadmap-card:focus-visible{outline:2px solid #5ac596;outline-offset:2px}.grip{color:#7d8988;cursor:grab;font-size:19px;user-select:none}.badge{font-size:11px;border:1px solid #4b5756;border-radius:20px;padding:2px 7px;color:#b4bdbc}.tabs{display:flex;gap:20px;border-bottom:1px solid var(--border);margin:20px 0 16px}.tab{background:none;border:0;color:var(--muted);padding:9px 0}.tab.active{color:#fff;border-bottom:2px solid #35a975}.grid{display:grid;grid-template-columns:minmax(0,1fr) 290px;gap:16px}.stack{display:grid;gap:9px}.question{border:1px solid #394341;background:#202625;border-radius:6px;padding:10px;display:block}.question input{margin-right:8px}.field{background:#121617;border:1px solid #394142;border-radius:6px;padding:9px;width:100%;margin:8px 0}.history{height:270px;overflow:auto}.message{padding:12px;border-bottom:1px solid #303637;line-height:1.5}.message strong{display:block;margin-bottom:4px}.ghost{border:1px dashed #3b4643;text-align:center;padding:50px 15px;border-radius:8px;margin-top:20px}.step{display:flex;gap:10px;align-items:center;color:#a2adac}.step .dot{border-radius:50%;background:#277a55;width:7px;height:7px}.notice{background:#1a3126;border:1px solid #2e6046;border-radius:7px;padding:11px 13px;color:#b8e7c9;margin:14px 0}.hidden{display:none!important}hr{border:0;border-top:1px solid var(--border);margin:18px 0}@media(max-width:720px){.sidebar{width:52px;padding:10px 4px}.sidebar .label,.section,.workspace{display:none}.nav{padding:10px;text-align:center}.nav span{width:auto}.content{padding:18px 14px}.grid{grid-template-columns:1fr}.bar{padding:0 12px}}
+.stage-strip{display:flex;gap:7px;flex-wrap:wrap;margin:18px 0 2px}.stage-pill{border:1px solid #394441;border-radius:6px;padding:8px 10px;color:#9aa4a4;font-size:12px}.stage-pill{cursor:pointer}.stage-pill:disabled{opacity:.45;cursor:not-allowed}.stage-pill.current{background:#17392a;border-color:#2faa72;color:#d3f8e2;font-weight:600}.stage-pill.complete{color:#9bc6ab}.question-row{border:1px solid #35403d;border-radius:8px;background:#1b2020;padding:14px;margin-top:10px}.option-row{display:flex;align-items:flex-start;gap:9px;border:1px solid #394341;border-radius:6px;padding:9px 10px;margin:6px 0}.option-row input{margin:3px 0}.option-row strong{display:block;font-weight:500}.option-row small{display:block;color:#a4afac;margin-top:3px;line-height:1.4}.question-meta{color:#9aaba4;font-size:12px;margin-top:8px}.graph-board{position:relative;min-height:360px;overflow:auto;background-color:#131819;background-image:radial-gradient(#35413e 1px,transparent 1px);background-size:18px 18px;border:1px solid #35413e;border-radius:8px;margin-top:14px}.graph-inner{position:relative;width:940px;height:340px}.graph-node{cursor:pointer;position:absolute;width:240px;background:#202827;border:1px solid #50645b;border-radius:8px;box-shadow:0 6px 20px #0005}.graph-node:hover,.graph-node:focus-visible{border-color:#5ac596;outline:none}.graph-node strong{display:block;padding:10px 12px;border-bottom:1px solid #3a4842}.graph-node div{padding:10px 12px;color:#afbbb6;font-size:12px}.graph-node .port{position:absolute;top:46px;width:10px;height:10px;background:#43b880;border-radius:50%;padding:0}.graph-node .in{left:-5px}.graph-node .out{right:-5px}.graph-board > .graph-inner > svg{position:absolute;inset:0;pointer-events:none}.option-row{display:block}.option-main{display:flex;align-items:center;gap:9px;cursor:pointer}.option-main input{flex:none}.option-main strong{flex:1}.recommendation{color:#a9e9bd;border:1px solid #397950;background:#193528;border-radius:12px;font-size:11px;padding:2px 7px}.option-details{margin:8px 0 0 22px;color:#a4afac;font-size:12px}.option-details summary{cursor:pointer;color:#b6c8be;width:max-content}.option-details p{white-space:pre-wrap;margin:8px 0 2px;line-height:1.5}.option-details summary{display:block;width:auto}.option-details summary::before{content:'▸ ';color:#8ea89a}.option-details[open] summary::before{content:'▾ '}.option-preview{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;color:#a4afac;margin:4px 0 0 12px;white-space:pre-wrap;line-height:1.45}.option-details[open] .option-preview{display:none}.recommended-why{font-size:12px;color:#a7cdb1;margin:7px 0 0 22px;line-height:1.4}.question-link{background:none;border:0;padding:0;color:#74cba0;font:inherit;text-decoration:underline;cursor:pointer}.question-row.related-highlight{border-color:#53c991;box-shadow:0 0 0 2px #2b9c6c;background:#20342a}.plan-tools{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:16px 0}.plan-view-switch{display:flex;gap:4px;margin-left:auto}.plan-view-switch button[aria-pressed="true"]{border-color:#39a972;color:#d3f8e2}.md-view{line-height:1.6;overflow-wrap:anywhere}.md-view h2{margin:12px 0;font-size:19px}.md-view h3{margin:16px 0 8px;font-size:15px}.md-line{white-space:pre-wrap;min-height:1.45em}.diff-line{display:flex;gap:10px;white-space:pre-wrap;overflow-wrap:anywhere;border-left:3px solid transparent;padding:2px 8px;min-height:1.7em}.diff-line.add{background:#163a28;border-color:#37aa6c;color:#c4f2d3}.diff-line.remove{background:#3b2022;border-color:#d36e76;color:#f2c9cd}.diff-mark{flex:none;width:12px;font-family:monospace}.raw-view{font:12px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre-wrap;overflow-wrap:anywhere}.diff-direction{color:#a3b3ac;font-size:12px;margin:4px 0 12px}.dependencies summary{cursor:pointer;color:#a9cbb5}.dependencies .dependency-search{max-width:260px}.dependency-list{display:grid;gap:8px;max-height:180px;overflow:auto;justify-items:start}.dependency-item[hidden]{display:none}.graph-node .node-status{padding:5px 10px;color:#b3c3bc;font-size:11px}.node-extra{padding:0 10px 8px;color:#a9c6b5;font-size:11px}.node-extra summary{cursor:pointer}.graph-node .node-extra-body{position:absolute;top:100%;left:0;z-index:20;width:230px;padding:12px;background:#25312c;border:1px solid #527d64;border-radius:6px;box-shadow:0 8px 18px #0009;color:#d9e8dd;line-height:1.5}.graph-node:has(details[open]){z-index:15}.model-chip{display:inline-block;margin:3px 0 0 3px;padding:2px 6px;border-radius:10px;background:#303a39;color:#d4dcda;font-size:10px}.graph-node strong{font-size:13px;line-height:1.25;min-height:46px}.graph-node .node-status{font-size:11px}.question-block{border:1px solid #33423b;border-radius:8px;margin:12px 0;padding:12px;background:#161c19}.question-block>summary{cursor:pointer;font-weight:600}.question-block[open]>summary{margin-bottom:12px}.question-block .question-row{margin-top:10px}.node-actions{display:flex;gap:5px;padding:3px 8px!important}.node-actions button{background:#28322e;border:1px solid #46534c;border-radius:4px;font-size:10px;padding:3px 6px;color:#d9e9df}.node-actions button:disabled{opacity:.35;cursor:not-allowed}.graph-node{padding:10px 11px;overflow:visible}.graph-node strong{border:0!important;padding:0!important;min-height:0!important;font-size:13px;line-height:1.25}.graph-node .node-status{padding:5px 0 2px!important;font-size:11px}.graph-node .task-desc{padding:4px 0!important;color:#bbc7c0;font-size:11px;line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.graph-node .node-extra{padding:4px 0 0!important}.graph-node .node-extra summary{color:#bcd0c2;font-size:11px;line-height:1.3;cursor:pointer}.graph-node .node-extra summary .dod-preview{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin:3px 0 0 10px;color:#aabcb1}.graph-node .node-extra[open] summary .dod-preview{display:none}.graph-node .node-actions{padding:4px 0!important}.type-chip{display:inline-block;border-radius:10px;background:#ffffff16;padding:2px 6px;font-size:10px;margin-left:3px}.human-gate{border:2px dashed #e4b65e!important}.node-dot{font-size:12px}.legend-types{font-size:11px;color:#a7b8ad;display:flex;gap:12px;flex-wrap:wrap;margin:10px 0}.view-tools{display:flex;gap:6px;align-items:center;margin:14px 0}.view-tools button[aria-pressed=true]{border-color:#45bb82;color:#d4f7e2}.task-list{display:grid;gap:18px;margin-top:14px}.task-list-group h2{margin:0 0 9px}.task-list-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,245px),1fr));gap:10px}.task-list .graph-node{position:relative!important;left:auto!important;top:auto!important;width:auto!important;height:auto!important;min-height:200px}.task-list .node-extra-body{position:static;width:auto;margin-top:8px}.graph-node.needs-attention{box-shadow:0 0 0 2px #e9b550,0 6px 20px #0007!important}.attention-label{display:inline-block;color:#ffd889;background:#5a421e;border-radius:9px;font-size:10px;padding:2px 6px;margin:5px 0}.node-actions{flex-wrap:wrap}.node-actions button{cursor:pointer}.node-actions .open-chat{color:#c9eada;border-color:#547b65}.chat-preview{border:1px solid #597262;border-radius:8px;padding:14px;margin:14px 0;background:#202b25}.chat-preview p{margin:8px 0}.task-list .node-actions button{font-size:12px;padding:8px 12px}@media(max-width:600px){.task-list-grid{grid-template-columns:1fr}.view-tools{flex-wrap:wrap}} .search-active .question-block{border:0;padding:0;margin:0;background:transparent}.search-active .question-block>summary,.search-active .question-block .row[hidden]{display:none}.search-active .question-row[hidden],.question-block[hidden]{display:none}.question-search{margin:0 0 12px}.search-empty{margin:12px 0;color:#a4afac} .graph-node .type-chip{position:absolute;right:9px;top:9px;margin:0;min-width:20px;text-align:center;font-weight:700}.graph-node strong{padding-right:30px!important}.planning-actions button{font-size:10px}.flow-request{margin:15px 0}.request-log{font-size:12px;color:#b9c9be;margin-top:8px}.task-list .graph-node{min-height:0}.task-editor label{display:block;margin-top:10px}.task-editor textarea{min-height:72px} .legend-types{align-items:center;gap:8px 14px}.legend-types>span:not(.legend-label){display:inline-flex;align-items:center;gap:5px}.legend-label{font-weight:600;color:#d5dfda}.legend-types i{display:inline-flex;align-items:center;justify-content:center;min-width:22px;height:22px;border:1px solid;border-radius:5px;font-style:normal;color:#e9eeeb;font-size:10px;font-weight:700}.legend-types .gate-key{border:2px dashed #e4b65e;background:#302a22;font-size:11px}.legend-disclosure{margin:10px 0}.legend-disclosure>summary{cursor:pointer;color:#aac4b4;font-size:12px;width:max-content}.legend-disclosure .legend-types{margin:8px 0}.node-return{padding:3px 0!important;color:#edc773!important;font-size:11px!important;line-height:1.3}.task-overlay{position:fixed;inset:0;z-index:100;background:#000a;display:flex;align-items:center;justify-content:center;padding:20px}.task-dialog{width:min(560px,100%);max-height:calc(100dvh - 40px);overflow:auto;background:#1b2220;border:1px solid #52655b;border-radius:12px;padding:20px;box-shadow:0 16px 50px #000a}.task-dialog h2{margin:0 0 12px}.task-dialog .field{width:100%}.trash-button svg{width:14px;height:14px;display:block}.node-actions .trash-button{padding:6px}.task-list .node-actions .trash-button{padding:8px}@media(max-width:600px){.task-overlay{align-items:flex-end;padding:0}.task-dialog{width:100%;max-height:90dvh;border-radius:14px 14px 0 0;padding:18px 16px calc(18px + env(safe-area-inset-bottom))}.task-dialog button{min-height:44px}.planning-actions button{min-height:44px}} .planning-actions .trash-button{margin-left:auto}.view-tools{justify-content:flex-end;flex-wrap:wrap}.view-tools .view-label{margin-right:auto;font-size:12px;color:#aabcb1}.branch-filter{max-width:260px;min-width:180px}.branch-info{font-size:12px;color:#adbfba;margin:6px 0 12px}.parallel-note{font-size:11px!important;color:#9ed5ba!important;padding:3px 0!important}@media(max-width:600px){.view-tools .view-label{width:100%}.branch-filter{flex:1;max-width:none}.view-tools{justify-content:flex-start}}.graph-node .task-config-summary{padding:2px 0 3px!important;color:#b2c4ba;font-size:10px;line-height:1.4}.branch-button{display:inline-block;background:transparent;border:1px solid #56786a;border-radius:4px;color:#b8e1c7;font-size:10px;cursor:pointer;padding:3px 6px;margin:4px 0}.task-list .branch-button{font-size:11px;padding:6px 8px}@media(max-width:600px){.task-list .branch-button{min-height:40px}}.graph-node .task-config-summary{display:flex;flex-wrap:wrap;gap:4px;padding:5px 0!important}.task-config-summary span{display:inline-flex;gap:4px;align-items:center;background:#ffffff0d;border:1px solid #ffffff12;border-radius:4px;padding:3px 5px}.task-config-summary small{font-size:10px;color:#91a79c}.task-config-summary b{font-size:10px;font-weight:500;color:#d5e1da}.task-fields{border:0;padding:0;margin:0;min-width:0}.task-fields:disabled{opacity:.78}.reasoning-level{font-style:normal;font-size:10px;font-weight:700;color:#c4e9d1;background:#466456;border-radius:3px;padding:1px 4px;cursor:help}.question-row.answer-collapsed .option-row:not(:has(input:checked)){display:none}.question-row.answer-collapsed .option-main input,.question-row.answer-collapsed .custom-answer{pointer-events:none}.dod-list{display:grid;gap:7px;margin-top:7px}.dod-item{display:flex;gap:8px;align-items:center}.dod-item .field{margin:0;flex:1}.dod-item button{min-width:36px}.dod-box{color:#a9c3b2}.dod-actions{margin-top:8px}.model-help{font-size:11px;color:#9dafa4;margin:5px 0}.question-heading-actions{display:flex;gap:8px;align-items:center}
+a.button{display:inline-block;color:inherit;text-decoration:none}.section-strip .stage-pill{cursor:pointer}
+</style></head><body><div class="layout"><aside class="sidebar"><div class="section" style="margin-top:5px">PASEO · SAMPLE</div><button class="nav"><span>＋</span><span class="label">New workspace</span></button><button class="nav"><span>◷</span><span class="label">History</span></button><button class="nav"><span>⌕</span><span class="label">Search</span></button><button class="nav"><span>▦</span><span class="label">Schedules</span></button><button class="nav active" data-section="planning"><span>⑂</span><span class="label">Pipeline</span></button><div class="section">WORKSPACES</div><div class="workspace">◉ &nbsp; Sample project</div></aside><main class="main"><header class="bar"><strong style="color:#e9eeeb">Pipeline</strong><span> / </span><span id="crumb">Sample pipeline</span><span style="flex:1"></span><span class="tag">INTERACTIVE MOCK</span></header><div class="content"><div class="row spread"><div><div class="small muted" id="context">SAMPLE PROJECT / PLANNING</div><h1 id="heading" style="margin-top:7px">Sample pipeline</h1></div><div id="headAction"><a class="button" href="../index.html">← All mockups</a></div></div><div id="body"></div></div></main></div><script>
+'use strict';
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[c]));
+
+const SECTIONS = {planning: 'Planning', execution: 'Execution'};
+const sectionFromHash = () => location.hash === '#execution' ? 'execution' : 'planning';
+const compact = window.innerWidth < 700;
+
+const state = {
+  page: sectionFromHash(),
+  planningView: compact ? 'cards' : 'diagram',
+  executionView: compact ? 'cards' : 'diagram',
+  branchRoot: 'all',
+  taskConfig: {},
+  taskEdits: {},
+  deletedTasks: [],
+  taskEditor: null,
+  taskPrompt: null,
+  flowRequests: [],
+  flowChat: false,
+  taskRequests: [],
+  runState: {},
+  mockChat: null,
+};
+
+const layers = [
+  ['Start'],
+  ['Gather requirements', 'Map user scenarios', 'Define acceptance', 'Document behavior'],
+  ['Review existing search', 'Review access rules', 'Review accessibility', 'Review search ranking', 'Create fixtures', 'Confirm constraints'],
+  ['Design search input', 'Design results list', 'Prepare empty states', 'Build search API', 'Connect results'],
+  ['Build search UI', 'Test API', 'Run acceptance checks', 'Integrate changes'],
+  ['Finalize delivery'],
+];
+const nodes = [];
+layers.forEach((layer, c) => layer.forEach((name, r) => nodes.push({name, col: c, row: r, x: 40 + c * 300, y: layer.length === 1 ? 850 : 50 + r * 360})));
+const find = (c, r) => nodes.find(n => n.col === c && n.row === r);
+const edges = [];
+for (let r = 0; r < 4; r++) edges.push([find(0, 0), find(1, r)]);
+for (let c = 1; c < 4; c++) for (let r = 0; r < layers[c + 1].length; r++) edges.push([find(c, Math.min(r, layers[c].length - 1)), find(c + 1, r)]);
+edges.push([find(2, 5), find(3, 4)], [find(3, 4), find(4, 3)]);
+for (let r = 0; r < 4; r++) edges.push([find(4, r), find(5, 0)]);
+
+const palette = {Start: ['#202829', '#52615d'], Research: ['#202c31', '#496a78'], Design: ['#2b2534', '#715d83'], Coding: ['#202d2b', '#4e7566'], Testing: ['#292b22', '#777a4e'], Review: ['#302a22', '#897353'], Acceptance: ['#30252a', '#8b626e']};
+const initials = {Start: 'S', Research: 'R', Design: 'D', Coding: 'C', Testing: 'T', Review: 'V', Acceptance: 'A'};
+const attentionStatuses = ['Needs review', 'Failed', 'Stopped'];
+
+const stepTitle = name => state.taskEdits[name]?.title ?? name;
+const stepDescription = name => state.taskEdits[name]?.description ?? (name === 'Start' ? 'Begin this workflow.' : `Work on ${name.toLowerCase()} for this feature.`);
+const stepDod = name => state.taskEdits[name]?.dod ?? `${name} is complete, relevant checks pass, and the evidence is available for review.`;
+const stepConfig = name => state.taskConfig[name] || {};
+
+function stepKind(name) {
+  if (name === 'Start') return 'Start';
+  if (/test|fixtures/i.test(name)) return 'Testing';
+  if (/acceptance|finalize/i.test(name)) return 'Acceptance';
+  if (/review|confirm/i.test(name)) return 'Review';
+  if (/build|connect|integrate/i.test(name)) return 'Coding';
+  if (/design|empty states/i.test(name)) return 'Design';
+  return 'Research';
+}
+
+function sampleStatus(n) {
+  if (n.name === 'Start') return 'Done';
+  if (n.name === 'Review accessibility') return 'Failed';
+  if (n.col === 1) return n.row === 0 ? 'In progress' : n.row === 1 ? 'Needs review' : 'Waiting';
+  return 'Waiting';
+}
+
+function statusColor(status) {
+  if (status === 'Done' || status === 'Accepted') return '#42c977';
+  if (status === 'In progress') return '#74b8f0';
+  if (status === 'Needs review') return '#e4b65e';
+  if (status === 'Failed') return '#ef7979';
+  return '#87938f';
+}
+
+const trashIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13M10 11v6M14 11v6"/></svg>';
+
+function configSummary(name) {
+  const cfg = stepConfig(name);
+  const model = cfg.model || 'Example model A';
+  const reasoning = cfg.reasoning ?? 'Medium';
+  const fallback = cfg.fallback ?? 'Example model B';
+  const fallbackReasoning = cfg.fallbackReasoning ?? 'Medium';
+  return [
+    '<div class="task-config-summary">',
+    `<span><small>Model</small><b>${esc(model)}</b><em class="reasoning-level" title="Reasoning: ${esc(reasoning)}" aria-label="Reasoning: ${esc(reasoning)}">${esc(reasoning.slice(0, 1))}</em></span>`,
+    `<span><small>Fallback</small><b>${esc(fallback)}</b>${fallback !== 'None' ? `<em class="reasoning-level" title="Fallback reasoning: ${esc(fallbackReasoning)}" aria-label="Fallback reasoning: ${esc(fallbackReasoning)}">${esc(fallbackReasoning.slice(0, 1))}</em>` : ''}</span>`,
+    `<span><small>Mode</small><b>${esc(cfg.mode ?? 'Automatic')}</b></span>`,
+    `<span><small>Retries</small><b>${esc(String(cfg.retries ?? 2))}</b></span>`,
+    '</div>',
+  ].join('');
+}
+
+function stepCard(n, execution, activeEdges) {
+  const status = execution ? (state.runState[n.name] || sampleStatus(n)) : 'Planned';
+  const attention = execution && attentionStatuses.includes(status);
+  const kind = stepKind(n.name);
+  const human = /Finalize delivery|Confirm constraints/.test(n.name);
+  const colors = palette[kind];
+  const title = stepTitle(n.name);
+  const dod = stepDod(n.name);
+  const outgoing = activeEdges.filter(([a]) => a.name === n.name).length;
+  const attempts = status === 'Waiting' ? 0 : status === 'Needs review' ? 2 : 1;
+  let actions = '';
+  if (execution) {
+    actions = `<div class="node-actions"><button data-run-action="stop" data-name="${esc(n.name)}" ${status !== 'In progress' ? 'disabled' : ''}>Stop</button><button data-run-action="accept" data-name="${esc(n.name)}" ${status !== 'Needs review' ? 'disabled' : ''}>Accept</button><button class="open-chat" data-chat="${esc(n.name)}">Open chat ↗</button></div>`;
+  } else if (n.name !== 'Start') {
+    actions = `<div class="node-actions planning-actions"><button data-edit-task="${esc(n.name)}">Edit</button><button data-prompt-task="${esc(n.name)}">Ask AI</button><button class="trash-button" data-delete-task="${esc(n.name)}" title="Delete step" aria-label="Delete ${esc(title)}">${trashIcon}</button></div>`;
+  }
+  return [
+    `<div class="graph-node ${human ? 'human-gate' : ''} ${attention ? 'needs-attention' : ''}" data-status="${esc(status)}" role="button" tabindex="0" data-task="${esc(n.name)}" data-kind="Step" style="left:${n.x}px;top:${n.y}px;width:230px;height:${execution ? 320 : 310}px;background:${colors[0]};border-color:${colors[1]}">`,
+    `<strong>${execution ? `<span class="node-dot" style="color:${statusColor(status)}">●</span> ` : ''}${esc(title)} ${human ? '<span title="Human gate" aria-label="Human gate">👤</span>' : ''}</strong>`,
+    attention ? '<span class="attention-label">● Needs attention</span>' : '',
+    `<span class="type-chip" title="${kind}${human ? ' · Human gate' : ''}" aria-label="${kind}${human ? ' · Human gate' : ''}">${initials[kind]}</span>`,
+    execution ? `<div class="node-status">${status} · Attempts: ${attempts}</div>` : '',
+    configSummary(n.name),
+    `<div class="task-desc">${esc(stepDescription(n.name))}</div>`,
+    !execution && outgoing > 1 ? `<div class="parallel-note">⑂ ${outgoing} parallel next steps</div>` : '',
+    n.name === 'Build search UI' ? '<div class="node-return">↩ Failed check → Design search input</div>' : '',
+    `<details class="node-extra"><summary>DoD<span class="dod-preview">${esc(dod)}</span></summary><div class="node-extra-body"><b>DoD:</b> ${esc(dod)}<br><span class="small muted">Select the card for full settings.</span></div></details>`,
+    !execution ? `<button class="branch-button" data-show-branch="${esc(n.name)}" aria-label="Show branch from ${esc(title)}">⑂ Show branch</button>` : '',
+    actions,
+    '</div>',
+  ].join('');
+}
+
+function graphMarkup(execution, activeEdges) {
+  const paths = activeEdges.map(([a, b]) => {
+    const x1 = a.x + 230, y1 = a.y + 95, x2 = b.x, y2 = b.y + 95;
+    return `<path d="M ${x1} ${y1} C ${x1 + 70} ${y1}, ${x2 - 70} ${y2}, ${x2} ${y2}" fill="none" stroke="#53b988" stroke-width="2" marker-end="url(#arrow)"/>`;
+  }).join('');
+  const cards = nodes.filter(n => !state.deletedTasks.includes(n.name)).map(n => stepCard(n, execution, activeEdges)).join('');
+  return [
+    '<div class="graph-board" aria-label="Pipeline graph"><div class="graph-inner" style="width:1840px;height:2320px">',
+    '<svg width="1840" height="2320" aria-hidden="true"><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#53b988"/></marker><marker id="return-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#e4b65e"/></marker></defs>',
+    paths,
+    '<path d="M 1355 50 L 1355 25 L 1055 25 L 1055 50" fill="none" stroke="#e4b65e" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#return-arrow)"/><text x="1070" y="20" fill="#e4b65e" font-size="11">Failed check → rework</text></svg>',
+    cards,
+    '<div style="position:absolute;left:40px;top:2260px;color:#a4b6ad;font-size:12px">Green: dependencies · Dashed amber: return for rework · Independent paths can run in parallel</div>',
+    '</div></div>',
+  ].join('');
+}
+
+function branchSet(activeEdges) {
+  const names = new Set();
+  if (state.branchRoot === 'all') return names;
+  names.add(state.branchRoot);
+  let changed = true;
+  while (changed) {
+    changed = false;
+    for (const [a, b] of activeEdges) {
+      if (names.has(a.name) && !names.has(b.name)) {
+        names.add(b.name);
+        changed = true;
+      }
+    }
+  }
+  return names;
+}
+
+function cardsMarkup(execution, graph, activeEdges) {
+  const branchNames = branchSet(activeEdges);
+  const container = document.createElement('div');
+  container.innerHTML = graph;
+  const cards = [...container.querySelectorAll('.graph-node')].filter(card => execution || state.branchRoot === 'all' || branchNames.has(card.dataset.task));
+  const groups = execution
+    ? [['Needs attention', attentionStatuses], ['In progress', ['In progress']], ['Waiting', ['Waiting']], ['Done', ['Done', 'Accepted']]]
+    : [['Steps', ['Planned']]];
+  const info = !execution && state.branchRoot !== 'all'
+    ? `<p class="branch-info">Branch from <strong>${esc(stepTitle(state.branchRoot))}</strong> · ${cards.length} steps including parallel paths</p>`
+    : '';
+  const sections = groups.map(([title, statuses]) => {
+    const matches = cards.filter(card => statuses.includes(card.dataset.status));
+    return matches.length ? `<section class="task-list-group"><h2>${title} <span class="badge">${matches.length}</span></h2><div class="task-list-grid">${matches.map(card => card.outerHTML).join('')}</div></section>` : '';
+  }).join('');
+  return `${info}<div class="task-list">${sections}</div>`;
+}
+
+function sectionStrip() {
+  return `<nav class="stage-strip section-strip" aria-label="Pipeline sections">${Object.entries(SECTIONS).map(([key, label]) => `<button class="stage-pill ${state.page === key ? 'current' : ''}" data-section="${key}" aria-current="${state.page === key ? 'page' : 'false'}">${label}</button>`).join('')}</nav>`;
+}
+
+function viewTools(execution) {
+  const view = execution ? state.executionView : state.planningView;
+  const branchFilter = !execution && state.planningView === 'cards'
+    ? `<select class="button branch-filter" id="branch-filter" aria-label="Filter by branch"><option value="all">All branches</option>${nodes.filter(n => !state.deletedTasks.includes(n.name)).map(n => `<option value="${esc(n.name)}" ${state.branchRoot === n.name ? 'selected' : ''}>From: ${esc(stepTitle(n.name))}</option>`).join('')}</select>`
+    : '';
+  return `<div class="view-tools" role="group" aria-label="${execution ? 'Execution' : 'Planning'} view"><span class="view-label">${execution ? 'Execution' : 'Workflow'}</span>${branchFilter}<button class="button" data-workflow-view="diagram" aria-pressed="${view === 'diagram'}">Diagram</button><button class="button" data-workflow-view="cards" aria-pressed="${view === 'cards'}">List</button></div>`;
+}
+
+const legend = '<details class="legend-disclosure"><summary>Legend</summary><div class="legend-types" aria-label="Step type legend"><span><i style="background:#202c31;border-color:#496a78">R</i> Research</span><span><i style="background:#2b2534;border-color:#715d83">D</i> Design</span><span><i style="background:#202d2b;border-color:#4e7566">C</i> Coding</span><span><i style="background:#292b22;border-color:#777a4e">T</i> Testing</span><span><i style="background:#302a22;border-color:#897353">V</i> Review</span><span><i style="background:#30252a;border-color:#8b626e">A</i> Acceptance</span><span><i style="background:#202829;border-color:#52615d">S</i> Start</span><span><i class="gate-key">👤</i> Human gate · requires a person</span><span>Dashed amber arrow · return for rework</span></div></details>';
+
+function flowRequestCard() {
+  return `<div class="card flow-request"><h2>Change the workflow</h2><label class="small muted" for="flow-prompt">Describe the changes for the model</label><textarea id="flow-prompt" class="field" placeholder="For example: add a review after testing"></textarea><div class="row" style="flex-wrap:wrap"><button class="button" data-flow-request>Request change</button><button class="button" data-flow-chat>Open workflow chat ↗</button></div>${state.flowChat ? '<p class="small muted">Workflow chat is illustrated in this mock. No agent is connected.</p>' : ''}${state.flowRequests.map(x => `<p class="request-log">Draft request: ${esc(x)}</p>`).join('')}</div>`;
+}
+
+function chatPreview() {
+  if (!state.mockChat) return '';
+  return `<div class="chat-preview"><div class="row spread"><strong>Agent chat · ${esc(state.mockChat)}</strong><button class="button" data-close-chat>Close</button></div><p class="small muted">Chat navigation is illustrated in this mock. No agent is connected.</p></div>`;
+}
+
+function selectOptions(values, selected) {
+  return values.map(value => `<option ${value === selected ? 'selected' : ''}>${value}</option>`).join('');
+}
+
+function editorDialog(editable) {
+  const name = state.taskEditor;
+  if (!name) return '';
+  const cfg = stepConfig(name);
+  const dodItems = stepDod(name).split('\n').filter(Boolean).map((item, i) => `<div class="dod-item"><span class="dod-box" aria-hidden="true">☐</span><input class="field dod-input" aria-label="DoD item ${i + 1}" value="${esc(item)}">${editable ? '<button type="button" class="button" data-remove-dod aria-label="Remove criterion">×</button>' : ''}</div>`).join('');
+  return [
+    `<div class="task-overlay"><div class="task-dialog task-editor" id="task-editor" role="dialog" aria-modal="true" aria-labelledby="edit-task-heading"><h2 id="edit-task-heading">${editable ? 'Edit step' : 'Step details'}</h2>`,
+    !editable ? '<p class="small muted">Read-only · execution settings are locked.</p>' : '',
+    `<fieldset class="task-fields" ${editable ? '' : 'disabled'}>`,
+    `<label>Title<input class="field" id="edit-task-title" value="${esc(stepTitle(name))}"></label>`,
+    `<label>Description<textarea class="field" id="edit-task-description">${esc(stepDescription(name))}</textarea></label>`,
+    `<label>Definition of done</label><div class="dod-list" id="edit-dod-list">${dodItems}</div>`,
+    editable ? '<button type="button" class="button dod-actions" data-add-dod>+ Add criterion</button>' : '',
+    '<h2 style="margin-top:18px">Execution settings</h2>',
+    `<label>Model<input class="field" data-edit-config="model" list="mock-models" value="${esc(cfg.model ?? 'Example model A')}" placeholder="Search provider or model" autocomplete="off"></label>`,
+    `<label>Reasoning<select class="field" data-edit-config="reasoning">${selectOptions(['Low', 'Medium', 'High'], cfg.reasoning ?? 'Medium')}</select></label>`,
+    `<label>Fallback model<input class="field" data-edit-config="fallback" list="mock-fallback-models" value="${esc(cfg.fallback ?? 'Example model B')}" placeholder="Search provider or model" autocomplete="off"></label>`,
+    `<label>Fallback reasoning<select class="field" data-edit-config="fallbackReasoning">${selectOptions(['Low', 'Medium', 'High'], cfg.fallbackReasoning ?? 'Medium')}</select></label>`,
+    `<label>Mode<select class="field" data-edit-config="mode">${selectOptions(['Automatic', 'Manual'], cfg.mode ?? 'Automatic')}</select></label>`,
+    '<datalist id="mock-models"><option value="Example provider 1 / Example model A"><option value="Example provider 1 / Example model B"><option value="Example provider 2 / Example model C"><option value="Example model A"><option value="Example model B"></datalist>',
+    '<datalist id="mock-fallback-models"><option value="None"><option value="Example provider 1 / Example model A"><option value="Example provider 1 / Example model B"><option value="Example provider 2 / Example model C"><option value="Example model A"><option value="Example model B"></datalist>',
+    '<p class="model-help">Example catalog · provider and model names are illustrative.</p>',
+    `<label>Retry limit<input class="field" data-edit-config="retries" type="number" min="0" max="10" value="${esc(String(cfg.retries ?? 2))}"></label>`,
+    '</fieldset>',
+    `<div class="row" style="margin-top:14px">${editable ? '<button class="button primary" data-save-task>Save</button>' : ''}<button class="button" data-cancel-task>${editable ? 'Cancel' : 'Close'}</button></div>`,
+    '</div></div>',
+  ].join('');
+}
+
+function promptDialog() {
+  if (!state.taskPrompt) return '';
+  return `<div class="task-overlay"><div class="task-dialog" id="task-prompt-panel" role="dialog" aria-modal="true" aria-labelledby="prompt-task-heading"><h2 id="prompt-task-heading">Change step · ${esc(stepTitle(state.taskPrompt))}</h2><textarea id="task-prompt" class="field" placeholder="Describe what the model should change"></textarea><div class="row"><button class="button" data-send-task-prompt>Request change</button><button class="button" data-cancel-task>Cancel</button></div></div></div>`;
+}
+
+function render() {
+  const execution = state.page === 'execution';
+  const editable = !execution;
+  $('#heading').textContent = 'Sample pipeline';
+  $('#context').textContent = `SAMPLE PROJECT / ${SECTIONS[state.page].toUpperCase()}`;
+  document.title = `${SECTIONS[state.page]} · Pipeline · UI mock`;
+
+  const activeEdges = edges.filter(([a, b]) => !state.deletedTasks.includes(a.name) && !state.deletedTasks.includes(b.name));
+  if (state.deletedTasks.includes(state.branchRoot)) state.branchRoot = 'all';
+  const graph = graphMarkup(execution, activeEdges);
+  const view = execution ? state.executionView : state.planningView;
+  const stepView = view === 'cards' ? cardsMarkup(execution, graph, activeEdges) : graph;
+  const intro = execution
+    ? '<p class="small muted">Demo run · sample statuses. Stop and Accept change only this page; no agents are running.</p>'
+    : '<p class="small muted">Configure the process graph: steps, dependencies, executors and checks. Changes stay in this page.</p>';
+
+  $('#body').innerHTML = [
+    sectionStrip(),
+    intro,
+    viewTools(execution),
+    execution ? chatPreview() : '',
+    legend,
+    editable ? flowRequestCard() : '',
+    editorDialog(editable),
+    promptDialog(),
+    state.taskRequests.map(x => `<p class="request-log">Draft for ${esc(x.task)}: ${esc(x.text)}</p>`).join(''),
+    stepView,
+    '<p class="small muted">Within each step: To do → In progress → DoD review → Done · failed review returns to rework with feedback.</p>',
+  ].join('');
+}
+
+function setPage(page) {
+  if (!(page in SECTIONS)) return;
+  state.page = page;
+  state.taskEditor = null;
+  state.taskPrompt = null;
+  if (location.hash !== '#' + page) {
+    try { history.replaceState(null, '', '#' + page); } catch { location.hash = page; }
+  }
+  render();
+}
+
+function openStep(name) {
+  state.taskEditor = name;
+  state.taskPrompt = null;
+  render();
+  document.querySelector('#edit-task-title:not(:disabled), #task-editor [data-cancel-task]')?.focus();
+}
+
+document.addEventListener('click', e => {
+  const t = e.target;
+  const section = t.closest('[data-section]');
+  if (section) { setPage(section.dataset.section); return; }
+  if (t.closest('[data-add-dod]')) {
+    const item = document.createElement('div');
+    item.className = 'dod-item';
+    item.innerHTML = '<span class="dod-box" aria-hidden="true">☐</span><input class="field dod-input" aria-label="DoD criterion" placeholder="Add a criterion"><button type="button" class="button" data-remove-dod aria-label="Remove criterion">×</button>';
+    document.getElementById('edit-dod-list').appendChild(item);
+    item.querySelector('input').focus();
+    return;
+  }
+  const removeDod = t.closest('[data-remove-dod]');
+  if (removeDod) { removeDod.closest('.dod-item').remove(); return; }
+  const view = t.closest('[data-workflow-view]');
+  if (view) {
+    if (state.page === 'execution') state.executionView = view.dataset.workflowView;
+    else state.planningView = view.dataset.workflowView;
+    render();
+    return;
+  }
+  const edit = t.closest('[data-edit-task]'), prompt = t.closest('[data-prompt-task]'), del = t.closest('[data-delete-task]');
+  if (edit || prompt || del) {
+    if (state.page !== 'planning') return;
+    if (edit) { openStep(edit.dataset.editTask); return; }
+    if (prompt) {
+      state.taskPrompt = prompt.dataset.promptTask;
+      state.taskEditor = null;
+    } else {
+      state.deletedTasks.push(del.dataset.deleteTask);
+      state.taskEditor = null;
+      state.taskPrompt = null;
+    }
+    render();
+    document.getElementById('task-prompt')?.focus();
+    return;
+  }
+  if (t.closest('[data-save-task]')) {
+    if (state.page !== 'planning' || !state.taskEditor) return;
+    const titleField = document.getElementById('edit-task-title');
+    const title = titleField.value.trim();
+    if (!title) { titleField.focus(); return; }
+    state.taskEdits[state.taskEditor] = {
+      title,
+      description: document.getElementById('edit-task-description').value,
+      dod: [...document.querySelectorAll('#edit-dod-list .dod-input')].map(input => input.value.trim()).filter(Boolean).join('\n'),
+    };
+    const cfg = state.taskConfig[state.taskEditor] ??= {};
+    document.querySelectorAll('[data-edit-config]').forEach(el => { cfg[el.dataset.editConfig] = el.value; });
+    state.taskEditor = null;
+    render();
+    return;
+  }
+  const branch = t.closest('[data-show-branch]');
+  if (branch) {
+    state.branchRoot = branch.dataset.showBranch;
+    state.planningView = 'cards';
+    render();
+    return;
+  }
+  if (t.closest('[data-cancel-task]')) { state.taskEditor = null; state.taskPrompt = null; render(); return; }
+  if (t.closest('[data-flow-chat]')) { state.flowChat = !state.flowChat; render(); return; }
+  if (t.closest('[data-flow-request]')) {
+    const field = document.getElementById('flow-prompt');
+    if (field.value.trim()) { state.flowRequests.push(field.value.trim()); render(); } else field.focus();
+    return;
+  }
+  if (t.closest('[data-send-task-prompt]')) {
+    const field = document.getElementById('task-prompt');
+    if (field.value.trim()) { state.taskRequests.push({task: state.taskPrompt, text: field.value.trim()}); state.taskPrompt = null; render(); } else field.focus();
+    return;
+  }
+  const chat = t.closest('[data-chat]');
+  if (chat) { state.mockChat = chat.dataset.chat; render(); document.querySelector('.chat-preview')?.scrollIntoView({block: 'nearest'}); return; }
+  if (t.closest('[data-close-chat]')) { state.mockChat = null; render(); return; }
+  const run = t.closest('[data-run-action]');
+  if (run) {
+    if (!run.disabled && state.page === 'execution') {
+      state.runState[run.dataset.name] = run.dataset.runAction === 'stop' ? 'Stopped' : 'Accepted';
+      render();
+    }
+    return;
+  }
+  if (t.closest('details.node-extra')) return;
+  const step = t.closest('[data-task]');
+  if (step) openStep(step.dataset.task);
+});
+
+document.addEventListener('change', e => {
+  if (e.target.id === 'branch-filter') { state.branchRoot = e.target.value; render(); }
+});
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && (state.taskEditor || state.taskPrompt)) { state.taskEditor = null; state.taskPrompt = null; render(); return; }
+  if (e.target.closest('.task-dialog') || e.target.closest('details.node-extra')) return;
+  const step = e.target.closest('[data-task]');
+  if (step && e.target === step && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); openStep(step.dataset.task); }
+});
+
+window.addEventListener('hashchange', () => { if (sectionFromHash() !== state.page) setPage(sectionFromHash()); });
+
+render();
+</script></body></html>

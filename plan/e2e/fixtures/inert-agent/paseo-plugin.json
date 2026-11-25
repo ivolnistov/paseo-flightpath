@@ -1,0 +1,8 @@
+{
+  "id": "e2e-inert-agent",
+  "name": "E2E inert agent (sandbox fixture)",
+  "media": [],
+  "requirements": {
+    "paseo": ">=0.16.0-beta.2"
+  }
+}

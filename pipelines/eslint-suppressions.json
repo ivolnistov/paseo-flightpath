@@ -1,0 +1,12 @@
+{
+  "mockups/execution.html": {
+    "no-unused-vars": {
+      "count": 1
+    }
+  },
+  "mockups/pipeline.html": {
+    "no-redeclare": {
+      "count": 1
+    }
+  }
+}

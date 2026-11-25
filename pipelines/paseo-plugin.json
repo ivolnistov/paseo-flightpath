@@ -1,0 +1,7 @@
+{
+  "id": "flightpath-pipeline",
+  "name": "Pipeline",
+  "requirements": {
+    "paseo": ">=0.17.0-beta.1"
+  }
+}

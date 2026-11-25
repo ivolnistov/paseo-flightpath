@@ -1,0 +1,40 @@
+{
+  "name": "decision-roadmap",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "files": [
+    "paseo-plugin.json",
+    "OVERVIEW.md",
+    "index.client.tsx",
+    "index.server.ts",
+    "client/",
+    "server/",
+    "shared/"
+  ],
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.node.json",
+    "lint": "eslint .",
+    "test:e2e-guards": "node e2e/check.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.32.1",
+    "smol-toml": "1.9.1",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@getpaseo/client": "0.12.0",
+    "@getpaseo/plugin": "0.12.0",
+    "@getpaseo/protocol": "0.12.0",
+    "@tanstack/react-query": "^5.90.11",
+    "@types/node": "^26.6.5",
+    "@types/react": "~19.2.0",
+    "eslint": "10.13.0",
+    "react": "~19.1.0",
+    "react-native": "0.81.5",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "8.58.1",
+    "vitest": "^5.0.5"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "types": [
+      "node"
+    ]
+  },
+  "include": [
+    "index.server.ts",
+    "server/**/*.ts",
+    "shared/**/*.ts",
+    "client/layout.ts",
+    "client/**/*.test.ts",
+    "vitest.config.mts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

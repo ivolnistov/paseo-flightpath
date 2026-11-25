@@ -1,0 +1,90 @@
+{
+  "sessions": [
+    {
+      "id": "s1",
+      "title": "Synthetic branching session",
+      "createdAt": "2026-10-20T10:00:00.000Z",
+      "status": "active",
+      "questions": [
+        {
+          "id": "q1",
+          "order": 0,
+          "title": "Root choice",
+          "context": "",
+          "options": [{ "id": "a", "label": "Option A" }, { "id": "b", "label": "Option B" }],
+          "allowFreeText": false,
+          "definitionRev": 1,
+          "activatedBy": [],
+          "invalidatedBy": [],
+          "revisions": [],
+          "discussion": [],
+          "validity": "unanswered"
+        },
+        {
+          "id": "q2",
+          "order": 1,
+          "title": "Branch B follow-up",
+          "context": "",
+          "options": [{ "id": "yes", "label": "Yes" }, { "id": "no", "label": "No" }],
+          "allowFreeText": false,
+          "definitionRev": 1,
+          "activatedBy": [{ "parent": { "sessionId": "s1", "questionId": "q1" }, "optionIds": ["b"] }],
+          "invalidatedBy": [],
+          "revisions": [],
+          "discussion": [],
+          "validity": "unanswered"
+        },
+        {
+          "id": "q3",
+          "order": 2,
+          "title": "Depends on root",
+          "context": "",
+          "options": [{ "id": "c", "label": "Option C" }, { "id": "d", "label": "Option D" }],
+          "allowFreeText": false,
+          "definitionRev": 1,
+          "activatedBy": [],
+          "invalidatedBy": [{ "upstream": { "sessionId": "s1", "questionId": "q1" } }],
+          "revisions": [],
+          "discussion": [],
+          "validity": "unanswered"
+        },
+        {
+          "id": "q4",
+          "order": 3,
+          "title": "Depends on q3",
+          "context": "",
+          "options": [{ "id": "c", "label": "Option C" }, { "id": "d", "label": "Option D" }],
+          "allowFreeText": false,
+          "definitionRev": 1,
+          "activatedBy": [],
+          "invalidatedBy": [{ "upstream": { "sessionId": "s1", "questionId": "q3" } }],
+          "revisions": [],
+          "discussion": [],
+          "validity": "unanswered"
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "title": "Synthetic dependent session",
+      "createdAt": "2026-10-20T10:00:00.000Z",
+      "status": "active",
+      "questions": [
+        {
+          "id": "x1",
+          "order": 0,
+          "title": "Cross-session follow-up",
+          "context": "",
+          "options": [{ "id": "y", "label": "Y" }, { "id": "n", "label": "N" }],
+          "allowFreeText": false,
+          "definitionRev": 1,
+          "activatedBy": [{ "parent": { "sessionId": "s1", "questionId": "q2" }, "optionIds": ["yes"] }],
+          "invalidatedBy": [{ "upstream": { "sessionId": "s1", "questionId": "q1" } }],
+          "revisions": [],
+          "discussion": [],
+          "validity": "unanswered"
+        }
+      ]
+    }
+  ]
+}

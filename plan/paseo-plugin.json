@@ -1,0 +1,8 @@
+{
+  "id": "decision-roadmap",
+  "name": "Plan",
+  "media": [],
+  "requirements": {
+    "paseo": ">=0.12.0"
+  }
+}
